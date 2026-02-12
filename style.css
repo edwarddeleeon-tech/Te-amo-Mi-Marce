@@ -1,0 +1,84 @@
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to bottom, #87CEEB, #A0E7E5); /* Cielo */
+    font-family: 'Comic Sans MS', cursive, sans-serif; /* Fuente juguetona */
+    overflow: hidden;
+}
+
+.garden-container {
+    width: 90%;
+    height: 90%;
+    background: linear-gradient(to bottom, #7CFC00 0%, #32CD32 100%); /* Césped */
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    cursor: pointer; /* Indica que es interactivo */
+}
+
+.instructions {
+    position: absolute;
+    top: 20px;
+    width: 100%;
+    text-align: center;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    z-index: 10;
+}
+
+.instructions h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.instructions p {
+    font-size: 1.2rem;
+}
+
+/* Estilo para las flores */
+.flower {
+    position: absolute;
+    font-size: 3rem; /* Tamaño inicial de la flor */
+    opacity: 0;
+    transform: scale(0);
+    animation: growAndFadeIn 0.8s forwards;
+    pointer-events: none; /* Para que el clic pase al contenedor */
+}
+
+@keyframes growAndFadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Estilo para el mensaje que se revela */
+.message-display {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 15px 25px;
+    border-radius: 10px;
+    font-size: 1.3rem;
+    color: #ff4b6e;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    max-width: 80%;
+    opacity: 0; /* Inicialmente oculto */
+    transition: opacity 1s ease;
+    z-index: 10;
+}
+
+.message-display.show {
+    opacity: 1;
+}
